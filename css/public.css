@@ -113,6 +113,13 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/*forms*/
+
+.form-text{
+  color: #000000;
+}
+
+
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {

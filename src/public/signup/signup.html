@@ -1,0 +1,78 @@
+<span>test span</span>
+ <form name='signupForm' novalidate ng-controller="SignupController as signup">
+
+        <input type="text" name="firstname" placeholder="Your firstname"
+          ng-model="signup.user.firstname"
+          value="testFirst"
+          required
+          minlength="2"
+          class="form-text">
+          {{ signup.user.firstname }}
+          <span
+            ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+            First name must be at least 2 characters long
+          </span>
+          <br>
+
+         <input type="text" name="lastname" placeholder="Your lastname"
+          ng-model="signup.user.lastname"
+          required
+          value="testLast"
+          minlength="2"
+           class="form-text">
+          {{ signup.user.lastname }}
+          <span
+            ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
+            Last name must be at least 2 characters long
+          </span>
+          <br>
+        <input type="email" name="email" placeholder="Email"
+          ng-model="signup.user.email"
+          required
+          value="test@test.com"
+           class="form-text">
+          <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="signup.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})"
+          value="555-123-1234"
+           class="form-text">
+          <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+          <input type="text" name="favorite" placeholder="Your fav dish (L1)"
+          ng-model="signup.user.favorite"
+          required
+          value="test favorite"
+          minlength="2"
+           class="form-text">
+          {{ signup.user.favorite }}
+          <span
+            ng-if="(signupForm.favorite.$error.minlength || signupForm.favorite.$error.required) && signupForm.favorite.$touched">
+            Last name must be at least 2 characters long
+          </span>
+          <br>
+        <button
+          ng-disabled="signupForm.$invalid"
+          ng-click="signup.submit()"
+           class="form-text">Submit</button>
+
+          <div style="margin-top: 10px;">
+            Form valid? {{ signupForm.$valid }}
+          </div>
+
+
+          <div id="info" ng-if="signup.completed">
+            Your info has been saved: <br><br>
+            First name: {{ signup.user.firstname}} <br>
+            Last name: {{ signup.user.firstname}} <br>
+            Email: {{ signup.user.email}} <br>
+            Phone: {{ signup.user.phone }} <br>
+            Favorite: {{ signup.user.favorite}} <br>
+          </div>
+      </form>
