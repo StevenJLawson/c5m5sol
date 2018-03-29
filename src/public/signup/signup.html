@@ -56,6 +56,9 @@
             ng-if="(signupForm.favorite.$error.minlength || signupForm.favorite.$error.required) && signupForm.favorite.$touched">
             Last name must be at least 2 characters long
           </span>
+          <span ng-if="signup.invalidFav">
+            No such menu number exists. (L1 is valid).
+          </span>
           <br>
         <button
           ng-disabled="signupForm.$invalid"
