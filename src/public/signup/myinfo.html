@@ -9,7 +9,7 @@
       Phone: {{ infoCtrl.user.phone }} <br>
      
     </div>
-    <div>
+    <div ng-if="infoCtrl.user">
     <span>Favorite: {{infoCtrl.user.favorite}}</span>
     <menu-item
              menu-item="infoCtrl.item">
